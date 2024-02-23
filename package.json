@@ -1,0 +1,79 @@
+{
+  "name": "electronjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^29.0.1",
+    "electron-builder": "^24.12.0"
+  },
+  "build": {
+    "productName": "example-electron-app",
+    "appId": "com.example.electron.app",
+    "directories": {
+      "output": "releases/${version}"
+    },
+    "files": [
+      "dist",
+      "electron"
+    ],
+    "asar": true,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "Buon18",
+          "repo": "contents-admin"
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg",
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "Buon18",
+          "repo": "contents-admin"
+        }
+      ]
+    },
+    "linux": {
+      "target": "AppImage",
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "ImFropZ",
+          "repo": "contents-admin"
+        }
+      ]
+    }
+  }
+}
